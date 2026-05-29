@@ -29,7 +29,7 @@ async function loadHomeData() {
     stats.value = statsData
   } catch (e) {
     error.value =
-      '채용 데이터를 불러오지 못했습니다. PostgreSQL과 백엔드(8080)가 실행 중인지 확인해 주세요.'
+      '채용 데이터를 불러오지 못했습니다. PostgreSQL과 백엔드(4444)가 실행 중인지 확인해 주세요.'
     console.error(e)
   } finally {
     loading.value = false
