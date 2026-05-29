@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: recruit-postgres
+    environment:
+      POSTGRES_DB: recruit_db
+      POSTGRES_USER: recruit
+      POSTGRES_PASSWORD: recruit123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U recruit -d recruit_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
